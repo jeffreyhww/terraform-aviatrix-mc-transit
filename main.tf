@@ -148,6 +148,12 @@ resource "aviatrix_transit_gateway" "default" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      bgp_lan_interfaces_count
+    ]
+  }
+
   depends_on = [
     aviatrix_vpc.bgp_over_lan_vpc
   ]
